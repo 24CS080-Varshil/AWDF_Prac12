@@ -106,3 +106,129 @@ button:disabled {
 .success {
     color: green;
 }
+
+.main-nav {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #374151;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.main-nav a.active {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.page-fallback, .page-content {
+    min-height: 220px;
+}
+
+.page-fallback {
+    display: grid;
+    place-items: center;
+    color: #475569;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.page-description {
+    color: #64748b;
+}
+
+.overview-grid, .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.metric-card, .contact-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.metric-value {
+    margin: 8px 0 0;
+    color: #2563eb;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .overview-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-nav {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #374151;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.main-nav a.active {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.page-fallback, .page-content {
+    min-height: 220px;
+}
+
+.page-fallback {
+    display: grid;
+    place-items: center;
+    color: #475569;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.page-description {
+    color: #64748b;
+}
+
+.overview-grid, .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.metric-card, .contact-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.metric-value {
+    margin: 8px 0 0;
+    color: #2563eb;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .overview-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

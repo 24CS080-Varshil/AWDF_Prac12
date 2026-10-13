@@ -1,8 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 const API_BASE_URL = "http://localhost:3000";
 const TOKEN_KEY = "task-manager-token";
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+
+function PageFallback() {
+    return <div className="page-fallback" role="status">Loading page…</div>;
+}
 
 function App() {
     const [token, setToken] = useState(() => localStorage.getItem(TOKEN_KEY) || "");
@@ -267,7 +274,8 @@ function App() {
     }
 
     return (
-        <main className="container">
+        <BrowserRouter>
+        <main className="container app-container">
             <header className="page-header">
                 <div>
                     <h1>Task Manager</h1>
@@ -277,6 +285,15 @@ function App() {
                     Log out
                 </button>
             </header>
+
+            <nav className="main-nav" aria-label="Main navigation">
+                <NavLink to="/" end>Tasks</NavLink>
+                <NavLink to="/projects">Projects</NavLink>
+                <NavLink to="/contact">Contact</NavLink>
+            </nav>
+
+            <Routes>
+                <Route path="/" element={<>
 
             <form onSubmit={addTask}>
                 <input
@@ -310,7 +327,13 @@ function App() {
                     <button type="button" onClick={() => deleteTask(task.id)}>Delete</button>
                 </article>
             ))}
+                </>} />
+                <Route path="/projects" element={<Suspense fallback={<PageFallback />}><ProjectsPage tasks={tasks} /></Suspense>} />
+                <Route path="/contact" element={<Suspense fallback={<PageFallback />}><ContactPage /></Suspense>} />
+                <Route path="*" element={<PageFallback />} />
+            </Routes>
         </main>
+        </BrowserRouter>
     );
 }
 
