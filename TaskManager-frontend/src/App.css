@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+.container {
+    width: min(700px, calc(100% - 32px));
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0;
+    text-align: left;
+}
+
+.user-email {
+    margin: 6px 0 0;
+    color: #4b5563;
+}
+
+.auth-container {
+    max-width: 420px;
+}
+
+.auth-container h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.task {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.task button:last-child {
+    background: #dc2626;
+}
+
+.logout-button, .link-button {
+    background: transparent;
+    color: #2563eb;
+}
+
+.logout-button {
+    border: 1px solid #2563eb;
+}
+
+.link-button {
+    display: block;
+    margin: 16px auto 0;
+    text-decoration: underline;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.task h3, .task p {
+    margin: 6px 0;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
