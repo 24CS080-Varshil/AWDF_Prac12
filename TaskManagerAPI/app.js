@@ -8,6 +8,7 @@ const logger = require("./middleware/logger");
 const errorHandler = require("./middleware/errorHandler");
 const taskRoutes = require("./routes/taskRoutes");
 const authRoutes = require("./routes/authRoutes");
+require("./listeners");
 
 // Parse JSON
 app.use(express.json());

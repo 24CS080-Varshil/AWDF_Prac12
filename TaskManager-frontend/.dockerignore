@@ -1,0 +1,6 @@
+node_modules
+dist
+dist-performance
+npm-debug.log*
+.git
+README.md

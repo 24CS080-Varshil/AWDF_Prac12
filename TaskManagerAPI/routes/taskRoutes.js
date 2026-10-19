@@ -3,6 +3,7 @@ const Task = require("../models/Task");
 const authenticate = require("../middleware/auth");
 const { validateNewTask, validateTaskUpdate } = require("../middleware/validation");
 const cache = require("../cache");
+const taskEvents = require("../events");
 
 const router = express.Router();
 
@@ -66,10 +67,14 @@ router.post("/", validateNewTask, async (req, res) => {
     });
     cache.invalidateTaskList(req.user.id);
 
+    const taskResponse = toTaskResponse(newTask);
+    taskEvents.emit("task-created", newTask);
+
     res.status(201).json({
         message: "Task created successfully",
-        task: toTaskResponse(newTask)
+        task: taskResponse
     });
+    console.log(`[API] Task creation response sent at ${new Date().toISOString()}`);
 
 });
 
@@ -110,6 +115,7 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json({
         message: "Task deleted successfully"
     });
+    taskEvents.emit("task-deleted", task);
 
 });
 
