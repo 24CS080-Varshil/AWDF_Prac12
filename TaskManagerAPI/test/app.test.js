@@ -11,4 +11,10 @@ describe("Task Manager API", () => {
             "Authentication token is required"
         );
     });
+    test("GET / returns 404 for an unknown route", async () => {
+        const response = await request(app).get("/");
+
+        expect(response.statusCode).toBe(404);
+        expect(response.body.message).toBe("Route not found");
+    });
 });
