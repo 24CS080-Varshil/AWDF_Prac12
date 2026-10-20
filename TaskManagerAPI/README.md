@@ -1,3 +1,5 @@
+[![CI Pipeline](https://github.com/OWNER/REPOSITORY/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/24CS080-Varshil/AWDF_Prac12/actions/workflows/ci.yml)
+
 # Task Manager API
 
 Express and MongoDB API for the Task Manager application.
