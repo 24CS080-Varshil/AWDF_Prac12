@@ -12,9 +12,11 @@ function authenticate(req, res, next) {
     try {
         req.user = jwt.verify(token, process.env.JWT_SECRET);
         next();
-    } catch (error) {
-        return res.status(401).json({ message: "Token is invalid or has expired" });
-    }
+    } catch {
+        return res.status(401).json({
+            message: "Token is invalid or has expired"
+    });
+}
 }
 
 module.exports = authenticate;
